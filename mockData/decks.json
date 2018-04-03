@@ -1,0 +1,42 @@
+[
+    {
+        "name": "basic",
+        "cards": [
+            {
+                "name": "Lord of the Rings",
+                "description": "Book by JJR Tolkien",
+                "year": 1954
+            },
+            {
+                "name": "The Empire State Building",
+                "description": "the empire state building",
+                "year": 1931
+            },
+            {
+                "name": "The Milk Cartoon",
+                "description": "the Milk Cartoon",
+                "year": 1915
+            },
+            {
+                "name": "Black Powder",
+                "description": "the black powder",
+                "year": 950
+            },
+            {
+                "name": "The Cork",
+                "description": "the cork",
+                "year": 1695
+            },
+            {
+                "name": "Glasses",
+                "description": "glasses",
+                "year": 1315
+            },
+            {
+                "name": "Whiskey",
+                "description": "whiskey",
+                "year": 1424
+            }
+        ]
+    }
+]

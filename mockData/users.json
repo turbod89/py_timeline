@@ -1,0 +1,32 @@
+[
+    {
+        "name": "lisa",
+        "lastName": "Simpson",
+        "firstName": "Lisa"
+    },
+    {
+        "name": "homer",
+        "lastName": "Simpson",
+        "firstName": "Homer"
+    },
+    {
+        "name": "marge",
+        "lastName": "Simpson",
+        "firstName": "Marge"
+    },
+    {
+        "name": "bart",
+        "lastName": "Simpson",
+        "firstName": "Bart"
+    },
+    {
+        "name": "maggie",
+        "lastName": "Simpson",
+        "firstName": "Maggie"
+    },
+    {
+        "name": "ralph",
+        "lastName": "Wiggum",
+        "firstName": "Ralph"
+    }
+]
