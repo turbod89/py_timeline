@@ -7,9 +7,9 @@ class Deck:
     name = None
 
     def __init__(self, *args, **kwargs):
+        self._cards = []
         for key in kwargs:
             if key == 'cards' and type(kwargs['cards']) == list:
-                self._cards = []
                 for card in kwargs[key]:
                     if type(card) == dict:
                         self._cards.append(Card(name = card['name'], description = card['description'], year = card['year'] ))

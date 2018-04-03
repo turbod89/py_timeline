@@ -22,6 +22,7 @@ class Party:
     
     mainDeck = Deck()
     tableDeck = Deck()
+    discartDeck = Deck()
     userDecks = []
 
 
@@ -34,6 +35,7 @@ class Party:
 
         self.userDecks = []
         self.tableDeck = Deck(name = 'table')
+        self.discartDeck = Deck(name = 'discart')
 
     def __str__(self):
         return 'Party \'%s\', with %i users' % (self.name, len(self.users))
@@ -163,11 +165,25 @@ class Party:
                 self.tableDeck.putCard(tokenCard,position)
                 return True
             else:
-                hand.putCard(tokenCard)
+                self.discartDeck.putCard(tokenCard)
+                newTokenCard = self.mainDeck.takeCard()
+                hand.putCard(newTokenCard)
                 return False
             
         else:
             return self.ERROR_UNKNOW
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -192,6 +208,8 @@ class Party:
                     print('\t    %i. %s\t%s' % (i, str(user), str(userDeck)))
 
             print('')
-            print('\tTable:%s' % str(self.tableDeck))
-            print('\tPool:%s' % str(self.mainDeck))
+            print('\t%s' % str(self.tableDeck))
+            print('\t%s' % str(self.mainDeck))
+            print('\t%s' % str(self.discartDeck))
+            print('')
 
