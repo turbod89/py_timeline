@@ -12,7 +12,7 @@ class Party:
     ERROR_OK = 0
     ERROR_UNKNOW = 1
 
-    INITIAL_NUM_CARDS = 1
+    INITIAL_NUM_CARDS = 3
 
     name = "party"
     users = []
@@ -133,10 +133,14 @@ class Party:
         return self
 
     def _updateState(self):
-
+        
         if self.getState() == self.STATE_STARTED:
             for i in range(len(self.users)):
-                if len(self.userDecks) == 0:
+                if len(self.userDecks[i]) == 0:
+
+                    return self._setState(self.STATE_FINISHED)
+            
+            if len(self.mainDeck) == 0:
                     return self._setState(self.STATE_FINISHED)
 
 
@@ -163,12 +167,14 @@ class Party:
             self.dealer += 1
             if success:
                 self.tableDeck.putCard(tokenCard,position)
-                return True
             else:
                 self.discartDeck.putCard(tokenCard)
                 newTokenCard = self.mainDeck.takeCard()
                 hand.putCard(newTokenCard)
-                return False
+            
+            self._updateState()
+
+            return success
             
         else:
             return self.ERROR_UNKNOW
@@ -209,7 +215,7 @@ class Party:
 
             print('')
             print('\t%s' % str(self.tableDeck))
-            print('\t%s' % str(self.mainDeck))
-            print('\t%s' % str(self.discartDeck))
+            #print('\t%s' % str(self.mainDeck))
+            #print('\t%s' % str(self.discartDeck))
             print('')
 

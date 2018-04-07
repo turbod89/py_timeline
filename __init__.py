@@ -41,21 +41,20 @@ def mock_createParties(users, deck):
 def main():
     users = mock_createUsers()
     decks = mock_createDeck()
-    parties = mock_createParties(users,decks[0])
+    parties = mock_createParties(users,decks[1])
     
     party = parties[0]
     party.start().print()
 
-    while party.getState() < 2:
+    while party.getState() < party.STATE_FINISHED:
         user = party.getDealer()
         hand = party.getHand(user)
 
         position = random.randint(0,len(party.tableDeck))
         card = hand.getCard(random.randint(0,len(hand)-1))
 
-        print ('User %s puts card %s in position %i' % (str(user),str(card),position))
         success = party.placeCard(card,position)
-        print (str(success))
+        print ('User %s puts card %s in position %i and %s' % (str(user),str(card),position, 'has success' if success else 'fails'))
         party.print()
 
 if __name__ == '__main__':

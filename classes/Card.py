@@ -14,6 +14,7 @@ class Card():
                 self.description = kwargs[key]
 
     def __str__(self):
+        return str(self.year)
         return '%i - \'%s\'' % (self.year, self.name)
 
     def __lt__(self, other):
