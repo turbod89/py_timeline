@@ -12,7 +12,7 @@ class Party:
     ERROR_OK = 0
     ERROR_UNKNOW = 1
 
-    INITIAL_NUM_CARDS = 3
+    INITIAL_NUM_CARDS = 5
 
     name = "party"
     users = []
@@ -133,7 +133,7 @@ class Party:
         return self
 
     def _updateState(self):
-        
+
         if self.getState() == self.STATE_STARTED:
             for i in range(len(self.users)):
                 if len(self.userDecks[i]) == 0:
@@ -142,6 +142,15 @@ class Party:
             
             if len(self.mainDeck) == 0:
                     return self._setState(self.STATE_FINISHED)
+
+    def getWinner(self):
+        if self.getState() != self.STATE_FINISHED:
+            return False
+        else:
+            for i in range(len(self.users)):
+                if len(self.userDecks[i]) == 0:
+                    return self.users[i]
+            return None
 
 
     def placeCard(self,card,position):
@@ -178,8 +187,6 @@ class Party:
             
         else:
             return self.ERROR_UNKNOW
-
-
 
 
 

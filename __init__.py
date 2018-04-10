@@ -56,6 +56,13 @@ def main():
         success = party.placeCard(card,position)
         print ('User %s puts card %s in position %i and %s' % (str(user),str(card),position, 'has success' if success else 'fails'))
         party.print()
+    
+    winner = party.getWinner()
+
+    if winner == None:
+        print ('None wins')
+    else:
+        print('%s wins!' % (winner.name))
 
 if __name__ == '__main__':
     main()
